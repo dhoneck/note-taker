@@ -8,6 +8,7 @@ const PORT = 3000;
 const app = express();
 
 // Middleware for parsing JSON and urlencoded form data
+app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -17,6 +18,13 @@ app.get('/notes', (req, res) => {
 
 app.get('/api/notes', (req, res) => {
   readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
+});
+
+app.post('/api/notes', (req, res) => {
+  const response = {
+    status: 'success',
+    body: req.body
+  }
 });
 
 app.get('/*', (req, res) => {
