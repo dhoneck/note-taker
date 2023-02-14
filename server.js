@@ -21,10 +21,13 @@ app.get('/api/notes', (req, res) => {
 });
 
 app.post('/api/notes', (req, res) => {
+  console.log('Trying to post to /api/notes');
   const response = {
     status: 'success',
     body: req.body
   }
+  readAndAppend(req.body, './db/db.json');
+  res.sendFile(path.join(__dirname, '/public/notes.html'));
 });
 
 app.get('/*', (req, res) => {
