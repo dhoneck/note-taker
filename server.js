@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const uuid = require('./helpers/uuid');
 const { readFromFile, writeToFile, readAndAppend } = require('./helpers/fsUtils');
 
 
@@ -21,12 +22,13 @@ app.get('/api/notes', (req, res) => {
 });
 
 app.post('/api/notes', (req, res) => {
-  console.log('Trying to post to /api/notes');
-  const response = {
-    status: 'success',
-    body: req.body
+  const { title, text } = req.body;
+  const new_note = {
+    id: uuid(),
+    title: title,
+    text: text,
   }
-  readAndAppend(req.body, './db/db.json');
+  readAndAppend(new_note, './db/db.json');
   res.sendFile(path.join(__dirname, '/public/notes.html'));
 });
 
