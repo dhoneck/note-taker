@@ -3,7 +3,7 @@ const path = require('path');
 const uuid = require('./helpers/uuid');
 const { readFromFile, writeToFile, readAndAppend } = require('./helpers/fsUtils');
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const DB_PATH = './db/db.json';
 const NOTES_HTML_PATH = '/public/notes.html';
 
