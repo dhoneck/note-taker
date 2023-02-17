@@ -2,7 +2,7 @@
 # Note Taker
 
 ## Description
-This simple application gives you a way to create, view, and delete notes. This application uses Node.JS and Express.JS to handle the backend. Notes are stored in a JSON file. Check out the deployed app [here](https://dh-note-taker.herokuapp.com/notes).
+This simple application gives you a way to create, view, and delete notes. This application uses Node.JS and Express.JS to handle the backend. Notes are stored in a JSON file. Check out the deployed app [here](https://dh-note-taker.herokuapp.com).
 
 ![Note Taker Screenshot](./assets/note_taker_screenshot.png)
 
